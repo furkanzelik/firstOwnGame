@@ -1,14 +1,18 @@
 import { ImageSource, Sound, Resource, Loader } from 'excalibur'
-// import fishImage from '../images/fish.png'
-import backgroundImage from '../images/castel_backround'
+// import backgroundImage from '../images/castle_backround.png'
+import fishImage from '../images/fish.png'
+import knightImage from '../images/knight.png.jpg'
 
 const Resources = {
-    // Fish: new ImageSource(fishImage)
-    Background: new ImageSource(backgroundImage)
+    
+    // Background: new ImageSource(backgroundImage),
+    Fish: new ImageSource(fishImage),
+    Knight: new ImageSource(knightImage)
 }
 const ResourceLoader = new Loader([
-    // Resources.Fish
-    Resources.Background
+    // Resources.Background,
+    Resources.Fish,
+    Resources.Knight
 ])
 
 export { Resources, ResourceLoader }
