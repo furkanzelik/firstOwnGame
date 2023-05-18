@@ -1,17 +1,48 @@
-import { Actor, DisplayMode, Vector } from "excalibur";
+import { Actor, DisplayMode, ExitViewPortEvent, Input, Vector } from "excalibur";
 import { Resources } from "./resources";
 
-export class Knight extends Actor{
-    constructor(){
+export class Knight extends Actor {
+    constructor() {
         super();
     }
 
-    onInitialize(engine){
-        
-        this.graphics.use(Resources.Knight.toSprite())
-        this.pos = new Vector(300,400)
-        this.vel = new Vector(80,0) 
+    onInitialize(engine) {
+        this.graphics.use(Resources.Knight.toSprite());
+        this.pos = new Vector(400, 400);
+        this.vel = new Vector(0, 0);
+    }
 
-    
+    onPreUpdate(engine) {
+        let xmove = 0;
+        let ymove = 0;
+
+        if
+         (engine.input.keyboard.isHeld(Input.Keys.Up) || 
+          engine.input.keyboard.isHeld(Input.Keys.W))
+           {
+            ymove = -150;
+        } 
+
+        else if
+         (engine.input.keyboard.isHeld(Input.Keys.Down) || 
+          engine.input.keyboard.isHeld(Input.Keys.S)) 
+          {
+            ymove = 150;
+        }
+
+        if (engine.input.keyboard.isHeld(Input.Keys.Right) || 
+            engine.input.keyboard.isHeld(Input.Keys.D))
+             {
+            xmove = 150;
+        } 
+        else if
+         (engine.input.keyboard.isHeld(Input.Keys.Left) || 
+          engine.input.keyboard.isHeld(Input.Keys.A))
+          {
+            xmove = -150;
+        }
+
+        this.vel.x = xmove;
+        this.vel.y = ymove;
     }
 }
