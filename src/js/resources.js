@@ -3,6 +3,7 @@ import knightImage from '../images/spellun-sprite.png'
 import backgroundImage from '../images/ground.png'
 import plantImage from '../images/plant_sprite.png'
 import cloudImage from '../images/Cloud.png'
+import rockImage from '../images/Rock Pile.png'
 
 const Resources = {
 
@@ -10,6 +11,7 @@ const Resources = {
     BG: new ImageSource(backgroundImage),
     Plant: new ImageSource(plantImage),
     Cloud: new ImageSource(cloudImage),
+    Rock: new ImageSource(rockImage),
 }
 const ResourceLoader = new Loader([
 
@@ -17,6 +19,7 @@ const ResourceLoader = new Loader([
     Resources.BG,
     Resources.Plant,
     Resources.Cloud,
+    Resources.Rock,
     
 ])
 

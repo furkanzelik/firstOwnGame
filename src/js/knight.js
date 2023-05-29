@@ -1,4 +1,4 @@
-import { Actor, CollisionType, DisplayMode, ExitViewPortEvent, Input, Physics, Vector } from "excalibur";
+import { Actor, CollisionType, DisplayMode, ExitViewPortEvent, Input, Physics, SpriteSheet, Vector } from "excalibur";
 import { Resources } from "./resources";
 
 export class Knight extends Actor {
@@ -6,7 +6,19 @@ export class Knight extends Actor {
         super({
             width: Resources.Knight.width,
             height: Resources.Knight.height
-        });    
+        })
+        // const runSheet = SpriteSheet.fromImageSource({
+        //     image: Resources.Knight,
+        // //     grid:{rows: 4, columns: 4}
+        // })       
+        
+        // const idle = runSheet.sprites[0] // geen animatie
+        // const runRight = Animation.fromSpriteSheet(runSheet, range(0, 7), 80)
+
+        // this.graphics.add("idle", idle)
+        // this.graphics.add("runright", runRight)
+
+        // this.graphics.use(idle)
     }
 
 
@@ -14,7 +26,6 @@ export class Knight extends Actor {
         this.graphics.use(Resources.Knight.toSprite());
         this.pos = new Vector(100,475)
         this.scale = new Vector(1.4,1.4)
-
         this.body.collisionType = CollisionType.Active
        
     }
@@ -22,15 +33,18 @@ export class Knight extends Actor {
     onPreUpdate(engine) {
         
         let ymove = 0;
+        // this.graphics.use('idle')
+        
 
         if(engine.input.keyboard.wasPressed(Input.Keys.Up) || 
           engine.input.keyboard.wasPressed(Input.Keys.Space))
-           {
-            ymove = -500;  
+           
+          {
+            ymove = -500; 
         } 
         
 
     this.vel = new Vector(0,this.vel.y+ymove) 
+    
     }
-
 }

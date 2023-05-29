@@ -38,8 +38,6 @@ export class Game extends Engine {
 
        let cloud = new Cloud
        this.add(cloud)
-       
-
 
     }
 }

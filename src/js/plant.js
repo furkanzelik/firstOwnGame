@@ -3,24 +3,30 @@ import { Resources } from "./resources";
 
 export class Plant extends Actor{
     constructor() {
-        super();
-        // const growPlant = SpriteSheet.fromImageSource({
-        //     image: Resources.Plant,
-        //     grid: { rows: 3, columns: 4, spriteWidth: 96, spriteHeight: 96 }
-        // })
-        // const idle = growPlant.sprites[0] // geen animatie
-        // const growAnimation = Animation.fromSpriteSheet(growPlant, range(0, 3), 80)
+        super({
+            width: Resources.Plant.width,
+            height: Resources.Plant.height
+        });
+
+        const growingPlant = SpriteSheet.fromImageSource({
+            image: Resources.Plant,
+            grid: { rows: 3, columns: 4, spriteWidth: 96, spriteHeight: 96 }
+        })
+
+        // const idle = Plant.sprites[0] // geen animatie
+        // const grow = Animation.fromSpriteSheet(Plant, range(1, 3), 80)
 
         // this.graphics.add("idle", idle)
-        // this.graphics.add("growAnimation", growAnimation)
-
+        // this.graphics.add("grow", grow)
         // this.graphics.use(idle)
+        
+        }
+        // onInitialize(engine) {
+        //     this.pos = new Vector(400,200)
+        //     this.vel = new Vector(-15,0)
+        //     this.body.collisionType = CollisionType.Fixed
+        // }
+        
     }
-    onInitialize(engine) {
-        // const plant = Resources.Plant.toSprite()
-        // this.graphics = plant
-        // this.pos = new Vector(400,300)
-        // this.vel = new Vector(0,0)
-    }
+   
 
-}
