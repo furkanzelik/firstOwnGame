@@ -1,29 +1,28 @@
-import { Actor, CollisionType, DisplayMode, ExitViewPortEvent, Input, Physics, SpriteSheet, Vector } from "excalibur";
+import { Actor, CollisionType, DisplayMode, ExitViewPortEvent, Input, Physics, SpriteSheet, Vector, range, Animation } from "excalibur";
 import { Resources } from "./resources";
 
 export class Knight extends Actor {
     constructor() {
         super({
-            width: Resources.Knight.width,
-            height: Resources.Knight.height
+            width: Resources.Knight.width / 4,
+            height: Resources.Knight.height / 4
         })
-        // const runSheet = SpriteSheet.fromImageSource({
-        //     image: Resources.Knight,
-        // //     grid:{rows: 4, columns: 4}
-        // })       
+        const runSheet = SpriteSheet.fromImageSource({
+            image: Resources.Knight,
+            grid:{rows: 4, columns: 4, spriteHeight: 258 / 4, spriteWidth: 256 / 4}
+        })       
         
-        // const idle = runSheet.sprites[0] // geen animatie
-        // const runRight = Animation.fromSpriteSheet(runSheet, range(0, 7), 80)
+        const idle = Animation.fromSpriteSheet(runSheet, range(0, 3), 80) // geen animatie
+        const runRight = Animation.fromSpriteSheet(runSheet, range(4, 7), 80)
 
-        // this.graphics.add("idle", idle)
-        // this.graphics.add("runright", runRight)
+        this.graphics.add("idle", idle)
+        this.graphics.add("runright", runRight)
 
-        // this.graphics.use(idle)
+        this.graphics.use(runRight)
     }
 
 
     onInitialize(engine) {
-        this.graphics.use(Resources.Knight.toSprite());
         this.pos = new Vector(100,475)
         this.scale = new Vector(1.4,1.4)
         this.body.collisionType = CollisionType.Active
@@ -33,14 +32,12 @@ export class Knight extends Actor {
     onPreUpdate(engine) {
         
         let ymove = 0;
-        // this.graphics.use('idle')
         
-
         if(engine.input.keyboard.wasPressed(Input.Keys.Up) || 
           engine.input.keyboard.wasPressed(Input.Keys.Space))
            
           {
-            ymove = -500; 
+            ymove = -550; 
         } 
         
 

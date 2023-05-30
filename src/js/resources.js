@@ -1,9 +1,9 @@
 import { ImageSource, Sound, Resource, Loader } from 'excalibur'
-import knightImage from '../images/spellun-sprite.png'
+import knightImage from '../images/knight-sprite.png'
 import backgroundImage from '../images/ground.png'
-import plantImage from '../images/plant_sprite.png'
+import plantImage from '../images/cactus.png'
 import cloudImage from '../images/Cloud.png'
-import rockImage from '../images/Rock Pile.png'
+import rockImage from '../images/Rock_Pile.png'
 
 const Resources = {
 

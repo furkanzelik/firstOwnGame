@@ -5,6 +5,7 @@ import { Knight } from './knight'
 import { Background } from './backround'
 import { Plant } from './plant'
 import { Cloud } from './cloud'
+import { Rock } from './rock'
 
 
 export class Game extends Engine {
@@ -27,17 +28,21 @@ export class Game extends Engine {
     startGame() {
         console.log("start de game!")
 
+        
+       let cloud = new Cloud
+       this.add(cloud)
+
        let knight = new Knight
-        this.add(knight)
+       this.add(knight)
 
        let background = new Background
-        this.add(background)
+       this.add(background)
 
        let plant = new Plant
        this.add(plant)
 
-       let cloud = new Cloud
-       this.add(cloud)
+       let rock = new Rock
+       this.add(rock)
 
     }
 }
