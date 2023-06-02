@@ -1,11 +1,13 @@
 import '../css/style.css'
-import { Actor, Color, DisplayMode, Engine, Physics, Vector, vec } from "excalibur"
+import { Actor, Color, DisplayMode, Engine, Physics, Timer, Vector, vec } from "excalibur"
 import { Resources, ResourceLoader } from './resources.js'
 import { Knight } from './knight'
 import { Background } from './backround'
-import { Plant } from './plant'
+// import { Plant } from './plant'
 import { Cloud } from './cloud'
 import { Rock } from './rock'
+import { Spawner } from './spawner'
+import { Dragon } from './dragon'
 
 
 export class Game extends Engine {
@@ -27,7 +29,8 @@ export class Game extends Engine {
  
     startGame() {
         console.log("start de game!")
-
+       
+       
         
        let cloud = new Cloud
        this.add(cloud)
@@ -35,14 +38,14 @@ export class Game extends Engine {
        let knight = new Knight
        this.add(knight)
 
-       let background = new Background
-       this.add(background)
+        let spawn = new Spawner
+        this.add(spawn)
 
-       let plant = new Plant
-       this.add(plant)
+        let background = new Background
+        this.add(background)
 
-       let rock = new Rock
-       this.add(rock)
+        let dragon = new Dragon
+        this.add(dragon)
 
     }
 }

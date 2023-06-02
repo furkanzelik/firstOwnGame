@@ -1,7 +1,11 @@
 import { Actor, CollisionType, DisplayMode, ExitViewPortEvent, Input, Physics, SpriteSheet, Vector, range, Animation } from "excalibur";
 import { Resources } from "./resources";
+import{ Background } from "../js/backround";
 
 export class Knight extends Actor {
+
+    grounded
+
     constructor() {
         super({
             width: Resources.Knight.width / 4,
@@ -26,19 +30,28 @@ export class Knight extends Actor {
         this.pos = new Vector(100,475)
         this.scale = new Vector(1.4,1.4)
         this.body.collisionType = CollisionType.Active
+        this.body.useGravity = true
+
+        this.on('collisionstart',(event) =>{this.isGrounded(event)})
        
     }
 
-    onPreUpdate(engine) {
+    isGrounded(event){
+        if(event.other instanceof Background){
+            this.grounded = true
+        }
+    }
+
+    onPostUpdate(engine) {
         
         let ymove = 0;
         
-        if(engine.input.keyboard.wasPressed(Input.Keys.Up) || 
-          engine.input.keyboard.wasPressed(Input.Keys.Space))
-           
-          {
-            ymove = -550; 
-        } 
+        if(this.grounded){
+            if (engine.input.keyboard.wasPressed(Input.Keys.Space)){
+            ymove = -600;
+            this.grounded = false;
+        }
+      }
         
 
     this.vel = new Vector(0,this.vel.y+ymove) 
