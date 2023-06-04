@@ -1,5 +1,6 @@
 import { Actor, CollisionType,Vector, } from "excalibur";
 import { Resources } from "./resources";
+import { Knight } from "./knight";
 
 export class Plant extends Actor{
     constructor() {
@@ -18,6 +19,7 @@ export class Plant extends Actor{
               this.vel = new Vector(-250,0)
               this.body.collisionType = CollisionType.Active
               this.body.useGravity = false;  
+
         }
         
     }

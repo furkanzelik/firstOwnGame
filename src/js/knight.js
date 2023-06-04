@@ -1,6 +1,9 @@
 import { Actor, CollisionType, DisplayMode, ExitViewPortEvent, Input, Physics, SpriteSheet, Vector, range, Animation } from "excalibur";
 import { Resources } from "./resources";
 import{ Background } from "../js/backround";
+import { Rock } from "./rock";
+import { Plant } from "./plant";
+
 
 export class Knight extends Actor {
 
@@ -32,8 +35,23 @@ export class Knight extends Actor {
         this.body.collisionType = CollisionType.Active
         this.body.useGravity = true
 
-        this.on('collisionstart',(event) =>{this.isGrounded(event)})
-       
+        this.on('collisionstart', (event) => {
+            if (event.other instanceof Rock) {
+              this.kill();
+            }
+          });
+
+          this.on('collisionstart', (event) => {
+            if (event.other instanceof Plant) {
+              this.kill();
+            }
+          });
+
+
+        this.on('collisionstart',(event) =>{
+            this.isGrounded(event)
+        })
+
     }
 
     isGrounded(event){

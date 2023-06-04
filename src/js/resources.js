@@ -1,10 +1,11 @@
-import { ImageSource, Sound, Resource, Loader } from 'excalibur'
+import { ImageSource, Sound, Resource, Loader, Color } from 'excalibur'
 import knightImage from '../images/knight-sprite.png'
 import backgroundImage from '../images/ground.png'
 import plantImage from '../images/cactus.png'
 import cloudImage from '../images/Cloud.png'
 import rockImage from '../images/Rock_Pile.png'
-import dragonImage from '../images/reddragon.png'
+// import startScreen from '../images/beginscherm.png'
+
 
 const Resources = {
 
@@ -13,7 +14,7 @@ const Resources = {
     Plant: new ImageSource(plantImage),
     Cloud: new ImageSource(cloudImage),
     Rock: new ImageSource(rockImage),
-    Dragon: new ImageSource(dragonImage),
+    
 }
 const ResourceLoader = new Loader([
 
@@ -22,8 +23,13 @@ const ResourceLoader = new Loader([
     Resources.Plant,
     Resources.Cloud,
     Resources.Rock,
-    Resources.Dragon,
     
 ])
+
+// ResourceLoader.logo = startScreen,
+// ResourceLoader.logoWidth = 750,
+// ResourceLoader.logoHeight = 350,
+// ResourceLoader.backgroundColor = Color.Grey,
+// ResourceLoader.loadingBarColor = Color.Green
 
 export { Resources, ResourceLoader }
