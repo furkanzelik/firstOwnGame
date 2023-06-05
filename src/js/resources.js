@@ -4,7 +4,7 @@ import backgroundImage from '../images/ground.png'
 import plantImage from '../images/cactus.png'
 import cloudImage from '../images/Cloud.png'
 import rockImage from '../images/Rock_Pile.png'
-// import dropletImage from '../images/droplet.png'
+import dropletImage from '../images/droplet.png'
 
 
 
@@ -15,7 +15,7 @@ const Resources = {
     Plant: new ImageSource(plantImage),
     Cloud: new ImageSource(cloudImage),
     Rock: new ImageSource(rockImage),
-    // Droplet: new ImageSource(dropletImage),
+    Droplet: new ImageSource(dropletImage),
    
     
 }
@@ -26,7 +26,7 @@ const ResourceLoader = new Loader([
     Resources.Plant,
     Resources.Cloud,
     Resources.Rock,
-    // Resources.Droplet,
+    Resources.Droplet,
 
     
     

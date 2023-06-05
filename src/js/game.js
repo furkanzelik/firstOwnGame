@@ -6,7 +6,7 @@ import { Background } from './backround'
 import { Cloud } from './cloud'
 import { Spawner } from './spawner'
 import { UI } from './text'
-// import {Droplet} from './droplet'
+import {Droplet} from './droplet.js'
 
 
 
@@ -35,8 +35,8 @@ export class Game extends Engine {
         let cloud = new Cloud();
         this.add(cloud);
 
-        // let droplet = new Droplet();
-        // this.add(droplet);
+        let droplet = new Droplet();
+        this.add(droplet);
 
         let knight = new Knight();
         this.add(knight);
