@@ -1,7 +1,7 @@
 import { Actor, Random, Timer } from "excalibur";
 import { Rock } from "./rock";
 import { Plant } from "./plant";
-import { Knight } from "./knight";
+
 
 export class Spawner extends Actor {
   constructor() {

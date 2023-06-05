@@ -12,6 +12,8 @@ import { UI } from './text'
 
 export class Game extends Engine {
 
+    UI;
+
     constructor() {
         super({ 
             backgroundColor: Color.ExcaliburBlue,
@@ -22,7 +24,7 @@ export class Game extends Engine {
 
         Physics.useArcadePhysics();
         Physics.gravity = vec(0, 900);
-        this.showDebug(true);
+        // this.showDebug(true);
     }
 
     startGame(engine) {
@@ -40,7 +42,12 @@ export class Game extends Engine {
         let background = new Background();
         this.add(background);
 
-        this.add(new UI())
+        this.UI = new UI()
+        this.add(this.UI)
+    }
+
+    onPostUpdate() {
+        this.UI.updateScore(this.clock.elapsed() / 10)
     }
 }
 

@@ -23,9 +23,9 @@ export class UI extends ScreenElement{
         })
         this.addChild(this.scoreText)
     }
-    updateScore(){
-        this.score++
-        this.scoreText.text = `Score: ${this.score}`
-    }   
+    updateScore(score){
+        this.score += score
+        this.scoreText.text = `Score: ${Math.ceil(this.score)}`
+    }  
 }
   
