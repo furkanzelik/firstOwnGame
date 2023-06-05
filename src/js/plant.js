@@ -1,6 +1,6 @@
 import { Actor, CollisionType,Vector, } from "excalibur";
 import { Resources } from "./resources";
-import { Knight } from "./knight";
+
 
 export class Plant extends Actor{
     constructor() {

@@ -6,6 +6,8 @@ import { Background } from './backround'
 import { Cloud } from './cloud'
 import { Spawner } from './spawner'
 import { UI } from './text'
+// import {Droplet} from './droplet'
+
 
 
 
@@ -24,7 +26,7 @@ export class Game extends Engine {
 
         Physics.useArcadePhysics();
         Physics.gravity = vec(0, 900);
-        // this.showDebug(true);
+        this.showDebug(true);
     }
 
     startGame(engine) {
@@ -32,6 +34,9 @@ export class Game extends Engine {
 
         let cloud = new Cloud();
         this.add(cloud);
+
+        // let droplet = new Droplet();
+        // this.add(droplet);
 
         let knight = new Knight();
         this.add(knight);
@@ -49,6 +54,7 @@ export class Game extends Engine {
     onPostUpdate() {
         this.UI.updateScore(this.clock.elapsed() / 10)
     }
+   
 }
 
 new Game();

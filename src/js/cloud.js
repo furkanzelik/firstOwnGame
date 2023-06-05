@@ -1,4 +1,4 @@
-import { Actor, DisplayMode, ExitViewPortEvent, Input, Random, Timer, Vector } from "excalibur";
+import { Actor, Vector } from "excalibur";
 import { Resources } from "./resources";
 
 export class Cloud extends Actor {

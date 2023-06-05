@@ -8,6 +8,7 @@ import { Plant } from "./plant";
 export class Knight extends Actor {
 
     grounded
+    
 
     constructor() {
         super({
@@ -35,14 +36,18 @@ export class Knight extends Actor {
         this.body.collisionType = CollisionType.Active
         this.body.useGravity = true
 
+        
+
         this.on('collisionstart', (event) => {
             if (event.other instanceof Rock) {
+            //   this.GameOver()
               this.kill();
             }
           });
 
           this.on('collisionstart', (event) => {
             if (event.other instanceof Plant) {
+              
               this.kill();
             }
           });
