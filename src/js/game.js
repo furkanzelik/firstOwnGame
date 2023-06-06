@@ -26,7 +26,7 @@ export class Game extends Engine {
 
         Physics.useArcadePhysics();
         Physics.gravity = vec(0, 900);
-        this.showDebug(true);
+        // this.showDebug(true);
     }
 
     startGame(engine) {
@@ -37,6 +37,12 @@ export class Game extends Engine {
 
         let droplet = new Droplet();
         this.add(droplet);
+
+        const droplet1 = new Droplet(100, 200);
+        droplet1.fallDown();
+
+        const droplet2 = new Droplet(300, 400);
+        droplet2.fallDown();
 
         let knight = new Knight();
         this.add(knight);

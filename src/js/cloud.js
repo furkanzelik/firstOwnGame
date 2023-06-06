@@ -12,20 +12,21 @@ export class Cloud extends Actor {
             height: Resources.Cloud.height
         });
 
-        this.druppel = new Droplet()
+        this.druppel = new Droplet();
         
+
     }
 
     
 
     onInitialize(engine){
-        
-    this.graphics.use(Resources.Cloud.toSprite());
+    this.graphics.use(Resources.Cloud.toSprite());    
     this.pos = new Vector(200, 200);
     this.vel = new Vector(-40, 0);
     this.scale = new Vector(4, 4);
 
    
+    
 
     }
 
@@ -34,6 +35,7 @@ export class Cloud extends Actor {
             this.pos = new Vector(600,200)
         }
     }  
+
 
    
 }

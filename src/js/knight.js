@@ -35,6 +35,7 @@ export class Knight extends Actor {
         this.scale = new Vector(1.4,1.4)
         this.body.collisionType = CollisionType.Active
         this.body.useGravity = true
+        console.log(engine)
 
         
 
