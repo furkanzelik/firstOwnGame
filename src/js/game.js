@@ -1,5 +1,5 @@
 import '../css/style.css'
-import { Actor, Color, DisplayMode, Engine, Font, FontUnit, Label, Physics, Timer, Vector, vec, ScreenElement } from "excalibur"
+import { Actor, Color, DisplayMode, Engine, Font, FontUnit, Label, Physics, Timer, Vector, vec, ScreenElement, Scene } from "excalibur"
 import { Resources, ResourceLoader } from './resources.js'
 import { Knight } from './knight'
 import { Background } from './backround'
@@ -12,24 +12,16 @@ import {Droplet} from './droplet.js'
 
 
 
-export class Game extends Engine {
+export class Level extends Scene {
 
     UI;
+    cloud;
 
     constructor() {
-        super({ 
-            backgroundColor: Color.ExcaliburBlue,
-            width: 800,
-            height: 600
-        });
-        this.start(ResourceLoader).then(() => this.startGame());
-
-        Physics.useArcadePhysics();
-        Physics.gravity = vec(0, 900);
-        // this.showDebug(true);
+        super()
     }
 
-    startGame(engine) {
+    onInitialize(engine) {
         console.log("start de game!");
 
         let cloud = new Cloud();
@@ -38,11 +30,11 @@ export class Game extends Engine {
         let droplet = new Droplet();
         this.add(droplet);
 
-        const droplet1 = new Droplet(100, 200);
-        droplet1.fallDown();
+        // const droplet1 = new Droplet(100, 200);
+        // droplet1.fallDown();
 
-        const droplet2 = new Droplet(300, 400);
-        droplet2.fallDown();
+        // const droplet2 = new Droplet(300, 400);
+        // droplet2.fallDown();
 
         let knight = new Knight();
         this.add(knight);
@@ -57,10 +49,13 @@ export class Game extends Engine {
         this.add(this.UI)
     }
 
-    onPostUpdate() {
-        this.UI.updateScore(this.clock.elapsed() / 10)
+    onPostUpdate(engine) {
+        this.UI.updateScore(engine.clock.elapsed() / 10)
+        for (const actor of this.actors) {
+            if (actor instanceof Droplet) {
+              actor.fallDown();
+            }
+          }
     }
    
 }
-
-new Game();

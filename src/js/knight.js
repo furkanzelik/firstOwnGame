@@ -1,4 +1,4 @@
-import { Actor, CollisionType, DisplayMode, ExitViewPortEvent, Input, Physics, SpriteSheet, Vector, range, Animation } from "excalibur";
+import { Actor, CollisionType,Input, SpriteSheet, Vector, range, Animation } from "excalibur";
 import { Resources } from "./resources";
 import{ Background } from "../js/backround";
 import { Rock } from "./rock";
@@ -43,6 +43,7 @@ export class Knight extends Actor {
             if (event.other instanceof Rock) {
             //   this.GameOver()
               this.kill();
+              engine.goToScene('Eindscherm')
             }
           });
 
@@ -50,6 +51,7 @@ export class Knight extends Actor {
             if (event.other instanceof Plant) {
               
               this.kill();
+              engine.goToScene('Eindscherm')
             }
           });
 

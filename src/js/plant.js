@@ -1,4 +1,4 @@
-import { Actor, CollisionType,Vector, } from "excalibur";
+import { Actor, CollisionType,Input,Vector, } from "excalibur";
 import { Resources } from "./resources";
 
 
@@ -21,5 +21,7 @@ export class Plant extends Actor{
               this.body.useGravity = false;  
 
         }
+
+       
         
     }
